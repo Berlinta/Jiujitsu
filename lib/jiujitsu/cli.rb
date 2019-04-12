@@ -11,8 +11,8 @@ class Jiujitsu::CLI
     when "bjj"
         puts "in bjj"
         url = "https://www.venum.com/sports/bjj/bjj-gis.html"
-        Jiujitsu::Scraper.scrape_equipment(url)
-
+        types = Jiujitsu::Scraper.scrape_equipment(url)
+        puts types[1]
       when "boxing"
         puts "in boxing"
       when "karate"
