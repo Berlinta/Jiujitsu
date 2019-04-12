@@ -1,0 +1,2 @@
+class Jiujitsu::Bjj
+end
