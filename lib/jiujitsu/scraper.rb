@@ -13,4 +13,9 @@ class Jiujitsu::Scraper
     end
     #return will be an array of objects
   end
+
+ def self.scrape_type(type)
+   website = Nokogiri::HTML(open())
+ end
+
 end

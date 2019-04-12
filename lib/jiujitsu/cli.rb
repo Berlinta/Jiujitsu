@@ -7,9 +7,8 @@ class Jiujitsu::CLI
   end
 
   def menu
-    puts "What type of equipment are you interested in?"
-    puts "BJJ GI's, Boxing Gloves, Karate GI's"
-    puts "Type either 'bjj', 'boxing', or 'karate'"
+    puts "What GI are you interested in?"
+    puts "Type bjj to see the list of GI's"
     input = gets.strip.downcase
     case input
     when "bjj"
@@ -17,17 +16,6 @@ class Jiujitsu::CLI
         scrape_gis
         list_gis
         chose_your_gi
-        # puts "Chose another GI you would like to see"
-        # # list more options
-        # types.each.with_index(1) do |color, index|
-        #   puts "#{index}. #{color.name}"
-        # end
-        # puts types[1].name
-        # puts types[1].url
-      when "boxing"
-        puts "in boxing"
-      when "karate"
-        puts "in karate"
       when "close"
         puts "Goodbye"
       else
@@ -58,7 +46,8 @@ class Jiujitsu::CLI
   end
 
   def show_the_gi(type)
-
+    binding.pry
+    Jiujitsu::Scraper.scrape_type(type)
   end
 
 
