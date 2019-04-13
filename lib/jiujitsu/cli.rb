@@ -1,16 +1,18 @@
 class Jiujitsu::CLI
 
   def start
-    puts "Welcome to Venum"
+    puts "WELCOME TO VENUM"
+    logo
     menu
   end
 
   def menu
-    puts "What GI are you interested in?"
-    puts "Type bjj to see the list of GI's"
+    puts "Quality Brazilian Jiu Jitsu GI's"
+    puts "Type all to see the list available of GI's"
+    #logo
     input = gets.strip.downcase
     case input
-    when "bjj"
+    when "all"
         puts "in GI's"
         scrape_gis
         list_gis
@@ -18,7 +20,7 @@ class Jiujitsu::CLI
       when "close"
         puts "Goodbye"
       else
-        puts "no such option"
+        puts "INVALID SELECTION"
         menu
     end
   end
@@ -50,5 +52,16 @@ class Jiujitsu::CLI
   def scrape_gis
     url = "https://www.venum.com/sports/bjj/bjj-gis.html"
     types = Jiujitsu::Scraper.scrape_equipment(url)
-    end
   end
+
+ def logo
+   puts "##     ## ######## ##    ## ##     ## ##     ##
+##     ## ##       ###   ## ##     ## ###   ###
+##     ## ##       ####  ## ##     ## #### ####
+##     ## ######   ## ## ## ##     ## ## ### ##
+ ##   ##  ##       ##  #### ##     ## ##     ##
+  ## ##   ##       ##   ### ##     ## ##     ##
+   ###    ######## ##    ##  #######  ##     ## "
+ end
+
+end
