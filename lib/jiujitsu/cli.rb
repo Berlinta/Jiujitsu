@@ -1,6 +1,5 @@
 class Jiujitsu::CLI
 
-
   def start
     puts "Welcome to Venum"
     menu
@@ -36,8 +35,7 @@ class Jiujitsu::CLI
     total = Jiujitsu::Style.all.length
     if input.between?(1,total)
       type = Jiujitsu::Style.all[input-1]
-      show_the_gi(input)
-      # okay
+      show_the_gi(type)
     else
       puts "\nPlease select the correct GI"
       list_gis
@@ -46,10 +44,8 @@ class Jiujitsu::CLI
   end
 
   def show_the_gi(type)
-    binding.pry
     Jiujitsu::Scraper.scrape_type(type)
   end
-
 
   def scrape_gis
     url = "https://www.venum.com/sports/bjj/bjj-gis.html"
