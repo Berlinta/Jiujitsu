@@ -1,15 +1,22 @@
 class Jiujitsu::Style
 
-  attr_accessor :name, :url
+  attr_accessor :name, :url, :price
+
   @@all = []
 
   def initialize(name, url)
     @name = name
-    @url = "https://www.venum.com/sports/bjj/bjj-gis.html" + url
+    @url = url
     @@all << self
   end
 
   def self.all
     @@all
   end
+  #
+  # def tag_price(tag)
+  #   self.prices << tag
+  #   tag.type = self
+  # end
+
 end

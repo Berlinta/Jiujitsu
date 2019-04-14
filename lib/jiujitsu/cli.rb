@@ -1,5 +1,7 @@
 class Jiujitsu::CLI
 
+  attr_accessor :gi
+
   def start
     puts "WELCOME TO VENUM"
     logo
@@ -9,16 +11,17 @@ class Jiujitsu::CLI
   def menu
     puts "Quality Brazilian Jiu Jitsu GI's"
     puts "Type all to see the list available of GI's"
-    #logo
+    puts "Type close to exit"
     input = gets.strip.downcase
     case input
     when "all"
-        puts "in GI's"
+        puts "Select the GI to get the price"
         scrape_gis
         list_gis
         chose_your_gi
+        show_price
       when "close"
-        puts "Goodbye"
+        puts "Thank you for checking out our selection."
       else
         puts "INVALID SELECTION"
         menu
@@ -34,19 +37,23 @@ class Jiujitsu::CLI
   def chose_your_gi
     puts "Select another GI with the correct number:"
     input = gets.strip.to_i
-    total = Jiujitsu::Style.all.length
-    if input.between?(1,total)
-      type = Jiujitsu::Style.all[input-1]
-      show_the_gi(type)
-    else
-      puts "\nPlease select the correct GI"
-      list_gis
-      chose_your_gi
-    end
+    @gi = Jiujitsu::Style.all[input-1]
+    #binding.pry
+  end
+
+  def get_price
+    Jiujitsu::Scraper.scrape_price(self.gi)
+  end
+
+  def show_price
+    puts "This is the price for this model: #{get_price}"
+    #binding.pry
   end
 
   def show_the_gi(type)
     Jiujitsu::Scraper.scrape_type(type)
+
+    #binding.pry
   end
 
   def scrape_gis
