@@ -52,8 +52,6 @@ class Jiujitsu::CLI
 
   def show_the_gi(type)
     Jiujitsu::Scraper.scrape_type(type)
-
-    #binding.pry
   end
 
   def scrape_gis

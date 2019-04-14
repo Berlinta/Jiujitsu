@@ -13,10 +13,4 @@ class Jiujitsu::Style
   def self.all
     @@all
   end
-  #
-  # def tag_price(tag)
-  #   self.prices << tag
-  #   tag.type = self
-  # end
-
 end

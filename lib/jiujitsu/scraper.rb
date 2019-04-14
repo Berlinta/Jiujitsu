@@ -9,7 +9,6 @@ class Jiujitsu::Scraper
       url = gi.attributes["href"].value#.split("html")[1] + "html"
       Jiujitsu::Style.new(text, url)
     end
-    #binding.pry
   end
 
  def self.scrape_price(obj) #SCRAPES THE PRICE
