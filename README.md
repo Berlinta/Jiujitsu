@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To start Jiujitsu you will need to run it from the project dircetory and use ruby bin/jiujitsu to engage the program, It will then welcome you and ask you for your input, when you are presented with all the available GIs after selecting the one you like it will give you the price tag for it and ask you for another input to either return to the menu or exit the program.
+
+type ALL to get the list of all the available GIs
+type CLOSE to exit
+type OTHER to chose antoher model
+type BACK to return to the main menu
+
+
 
 ## Development
 
